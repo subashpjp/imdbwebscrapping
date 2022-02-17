@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'imdbscrap.js') }}" ></script>
+         <script type = "text/javascript" src="imdbscrap.js"></script>
+         <link rel="stylesheet" href="/static/bootstrap.min.css">
+         <link rel="stylesheet" href="/static/imdb.css">
+         <style>
+             
+            
+             
+         </style>
+    </head>
+    <body>
+        
+       
+        
+        
+        
+        {% for response in details%}
+        
+        <div class="container-fluid">
+        <div class="row" style="border:1px solid #f6f6f5; background-color: #f6f6f5;height: 250px;
+        width: 50%;font-size: 11px; margin: 100px; margin-left: 0px;">
+        <div class="col-3">
+        <div>
+        <h5>{{response.find('h3', class_ = "lister-item-header").a.text}}</h5>
+        </div>
+        <div> 
+        <img src="{{response.find('img', class="loadlate").get("loadlate")}}">
+        </div>
+        <div>
+        <p>{{response.find('div',class_ = "lister-item-content").p.text}}</p>
+        </div>
+        
+        
+        <div>
+        <p>{{response.find('div', class_ = "ratings-imdb-rating").strong.text}}</p>
+        </div>
+        </div>
+        <div class="col-9" style="padding-top: 10%;">
+            <p>{{response.find_all('p',class_ = "text-muted")[1].text}}</p>
+        </div>
+        </div>
+        </div>
+
+        
+        
+        {% endfor %}
+        
+
+        
+        
+        
+       
+           
+    </body>
+</html>

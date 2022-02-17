@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'imdbscrap.js') }}" ></script>
+         <script type = "text/javascript" src="imdbscrap.js"></script>
+         <link rel="stylesheet" href="/static/bootstrap.min.css">
+         <link rel="stylesheet" href="/static/imdb.css">
+         <meta name="viewport" content="width=device-width,initial-scale=1">
+         <style>
+           .fm{
+               background-color: burlywood;
+               margin-top: 20%;
+               margin-left: 30%;
+           }
+           .bt{
+               margin-left: 45%;
+           }
+           img{
+               height: 60px;
+               width: 60px;
+           }
+           
+           input{
+               padding: 10px;
+               margin: 10px;
+           }
+               
+           
+            
+           
+            
+         </style>
+    </head>
+
+    <img src="/static/imd.png"/>
+    
+    <body style="background-color: black;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+        <form action ="/result" method="POST">
+            <input type="text" name = "moviesearch" placeholder="Enter the number of movies you want to search: " class="form-control fm" style="width: 500px;">
+            <input type = "submit" class="btn btn-success bt" value = "Search" />
+        </form>
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
